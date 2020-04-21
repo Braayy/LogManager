@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Manager</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="app">
+        <error-viewer
+            v-if="errorMessage"
+            :error="errorMessage"></error-viewer>
+        <div class="tabs-bar">
+            <tab
+                v-for="tab in tabs"
+                :key="tab"
+                :title="tab"></tab>
+        </div>
+        <div class="tab-content">
+            <h1 v-if="!selectedTab">No log was sent</h1>
+            <log
+                v-for="log in logs"
+                v-if="log.tab === selectedTab"
+                :key="log.content"
+                :level="log.level"
+                :time="log.time"
+                :content="log.content"></log>
+        </div>
+        <controls></controls>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "log-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "keywords": [],
+  "author": "Braayy",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.9"
+  }
+}
